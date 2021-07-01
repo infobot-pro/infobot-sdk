@@ -1,0 +1,56 @@
+{
+  "name": "infobot-sdk",
+  "version": "1.1.0",
+  "description": "Infobot SDK library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "build-silent": "tsc-silent -p tsconfig.json --suppress @",
+    "test": "jest",
+    "test:watch": "jest --watch --maxWorkers=1",
+    "lint": "npm run lint:js ",
+    "lint:eslint": "eslint --ignore-path .gitignore --ext .ts",
+    "lint:js": "npm run lint:eslint src/",
+    "lint:fix": "npm run lint:js -- --fix"
+  },
+  "author": "Infobot",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.infobot.pro/infobot/infobot-sdk.git"
+  },
+  "dependencies": {
+    "md5": "^2.3.0",
+    "mime": "^2.5.2",
+    "ts-node": "^10.0.0",
+    "uuid": "^8.3.2",
+    "ws": "^7.4.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.5",
+    "@types/jest": "^26.0.23",
+    "@types/lodash": "^4.14.170",
+    "@types/md5": "^2.3.0",
+    "@types/mime": "^2.0.3",
+    "@types/node": "^15.12.2",
+    "@types/uuid": "^8.3.0",
+    "@types/ws": "^7.4.4",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "babel-jest": "^27.0.2",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.4",
+    "prettier": "2.3.1",
+    "ts-jest": "^27.0.3",
+    "tsc-silent": "^1.2.1",
+    "typescript": "^4.3.3"
+  }
+}
