@@ -55,7 +55,7 @@ class InfobotPlayback extends events_1.default {
         });
     }
     say(text, params, ssml) {
-        this.call.send(actions.ttsAction(text, params, ssml));
+        this.call.send(actions.ttsAction(this.id, text, params, ssml));
         return this;
     }
     playURL(url) {

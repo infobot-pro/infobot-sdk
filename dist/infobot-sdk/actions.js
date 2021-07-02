@@ -6,7 +6,7 @@ exports.ACTIONS = {
     PONG: 'PONG',
     AUTH: 'auth',
     MAKE_CALL: 'make-call',
-    HANGUP: 'hang-up',
+    HANGUP: 'hangup',
     ANSWER: 'answer',
     RING: 'ring',
     STOP_DELIVERY: 'stop-delivery',
@@ -145,11 +145,12 @@ function stopAudioRecord(recordingID) {
     };
 }
 exports.stopAudioRecord = stopAudioRecord;
-function ttsAction(text, params = {}, ssml) {
+function ttsAction(playbackID, text, params = {}, ssml) {
     return {
         action: exports.ACTIONS.TTS_ACTION,
         params: Object.assign(Object.assign({ text,
-            ssml, playbackID: this.id }, params)),
+            ssml,
+            playbackID }, params)),
     };
 }
 exports.ttsAction = ttsAction;
