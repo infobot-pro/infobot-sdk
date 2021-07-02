@@ -78,10 +78,10 @@ export default class Infobot extends EventEmitter {
       this.removeCall(message.callID)
     }
 
-    this.emit(message.event, call, message.params)
+    this.emit(event, call, message.params)
 
     // TODO: list of available call events
-    call.processEvent(message.event, message.params, message)
+    call.processEvent(event, message.params, message)
 
     if (message.event === WS_EVENTS.PING) call.pong()
   }

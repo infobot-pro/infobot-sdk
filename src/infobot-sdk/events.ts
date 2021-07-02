@@ -17,7 +17,7 @@ export const APP_EVENTS = {
   FILE_REQUEST: 'FILE_REQUEST',
   FILE_STORED: 'FILE_STORED',
   FILE_STORE_ERROR: 'FILE_STORE_ERROR',
-  CONNECTED: 'CONNECTED',
+  CONNECTED: 'connected',
   RECORDING_FAILED: 'recordingSessionNotFound',
   RECORDING_COMPLETE: 'recordingComplete',
   RECORDING_SESSION_NOT_FOUND: 'recordingSessionNotFound',

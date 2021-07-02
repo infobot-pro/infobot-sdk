@@ -4,7 +4,7 @@ export const ACTIONS = {
   PONG: 'PONG',
   AUTH: 'auth',
   MAKE_CALL: 'make-call',
-  HANGUP: 'hang-up',
+  HANGUP: 'hangup',
   ANSWER: 'answer',
   RING: 'ring',
   STOP_DELIVERY: 'stop-delivery',
@@ -144,13 +144,13 @@ export function stopAudioRecord(recordingID: string | number) {
   }
 }
 
-export function ttsAction(text: string, params: any = {}, ssml: any) {
+export function ttsAction(playbackID: string | number, text: string, params: any = {}, ssml: any) {
   return {
     action: ACTIONS.TTS_ACTION,
     params: Object.assign({
       text,
       ssml,
-      playbackID: this.id,
+      playbackID,
       ...params,
     }),
   }

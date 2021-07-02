@@ -35,7 +35,7 @@ export default class InfobotPlayback extends EventEmitter {
   }
 
   say(text: any, params: any, ssml: any) {
-    this.call.send(actions.ttsAction(text, params, ssml))
+    this.call.send(actions.ttsAction(this.id, text, params, ssml))
     return this
   }
 
