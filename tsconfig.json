@@ -9,6 +9,7 @@
       "./node_modules/@types",
       "./src/types"
     ],
+    "declaration": true,
     "types": ["@types/jest"],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
