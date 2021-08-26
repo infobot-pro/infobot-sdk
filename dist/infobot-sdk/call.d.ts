@@ -4,11 +4,13 @@ import EventEmitter from 'events';
 import InfobotPlayback from './playback';
 import InfobotRecording from './recording';
 import InfobotRecognitionSession from './recognition';
+import InfobotVariables from './variables';
 export default class InfobotCall extends EventEmitter {
     id: string;
     private ws;
     params: any;
     isConnected: boolean;
+    variables: InfobotVariables;
     constructor(id: string, ws: WebSocket, params?: any);
     processEvent(event: string, data: any, receiveData?: any): void;
     send(data: any): void;
@@ -39,4 +41,5 @@ export default class InfobotCall extends EventEmitter {
     }): InfobotRecognitionSession;
     stopSpeechRecognition(): InfobotRecognitionSession;
     startAudioRecord(format: any): InfobotRecording;
+    reachMarker(blockId: number, name: string): void;
 }

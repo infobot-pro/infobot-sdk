@@ -13,3 +13,8 @@ export interface WsMessage {
   recordingID?: string
   sessionID?: string
 }
+
+export interface Variable {
+  value: string
+  key: string
+}

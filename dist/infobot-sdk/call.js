@@ -29,6 +29,7 @@ const recording_1 = __importDefault(require("./recording"));
 const recognition_1 = __importDefault(require("./recognition"));
 const actions = __importStar(require("./actions"));
 const events_2 = require("./events");
+const variables_1 = __importDefault(require("./variables"));
 class InfobotCall extends events_1.default {
     constructor(id = uuid_1.v4(), ws, params = {}) {
         super();
@@ -37,6 +38,7 @@ class InfobotCall extends events_1.default {
         this.params = params;
         this.isConnected = false;
         this.setMaxListeners(200);
+        this.variables = new variables_1.default(this);
     }
     processEvent(event, data, receiveData = null) {
         this.emit(event, data);
@@ -127,6 +129,9 @@ class InfobotCall extends events_1.default {
         const recording = new recording_1.default(this);
         recording.startRecording(format);
         return recording;
+    }
+    reachMarker(blockId, name) {
+        this.send(actions.reachMarker(blockId, name));
     }
 }
 exports.default = InfobotCall;

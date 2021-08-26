@@ -25,6 +25,9 @@ export const APP_EVENTS = {
   PLAYBACK_FINISHED: 'playbackFinished',
   SPEECH_RECOGNITION_TIMEOUT: 'speech-recognition-timeout',
   TRANSCRIBE: 'transcribe',
+  VARIABLES_SET: 'variables-set',
+  VARIABLES_DELETE: 'variables-delete',
+  VARIABLES_GET: 'variables-get',
 }
 
 export const WS_CALL_EVENTS = {
@@ -36,4 +39,7 @@ export const WS_CALL_EVENTS = {
   SPEECH_RECOGNITION_TIMEOUT: 'speech-recognition-timeout',
   PLAYBACK_FINISHED: 'playbackFinished',
   CALL_DISCONNECTED: 'call-disconnected',
+  VARIABLES_SET: 'variables-set',
+  VARIABLES_DELETE: 'variables-delete',
+  VARIABLES_GET: 'variables-get',
 }
