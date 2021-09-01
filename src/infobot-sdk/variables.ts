@@ -1,5 +1,4 @@
 import EventEmitter from 'events'
-import { v1 as uuid } from 'uuid'
 import { variablesSet, variablesDelete, variablesGet } from './actions'
 import InfobotCall from './call'
 import { APP_EVENTS, WS_CALL_EVENTS } from './events'

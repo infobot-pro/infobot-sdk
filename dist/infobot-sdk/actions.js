@@ -44,7 +44,7 @@ function variablesSet(variables) {
 }
 exports.variablesSet = variablesSet;
 function variablesDelete(key) {
-    return { action: exports.ACTIONS.VARIABLES_SET, params: { key } };
+    return { action: exports.ACTIONS.VARIABLES_DELETE, params: { key } };
 }
 exports.variablesDelete = variablesDelete;
 function reachMarker(blockId, name) {
