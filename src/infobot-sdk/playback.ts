@@ -56,7 +56,7 @@ export default class InfobotPlayback extends EventEmitter {
     }
 
     this.call.send(actions.playbackFile(this.id, fileHash, fileType))
-    this.call.on(WS_EVENTS.FILE_REQUEST, processFileRequest)
+    this.call.once(WS_EVENTS.FILE_REQUEST, processFileRequest)
 
     setTimeout(() => {
       this.call.off(WS_EVENTS.FILE_REQUEST, processFileRequest)

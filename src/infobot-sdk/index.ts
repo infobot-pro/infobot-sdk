@@ -43,9 +43,6 @@ export default class Infobot extends EventEmitter {
       case WS_EVENTS.AUTH_FAIL:
         this.emit(APP_EVENTS.AUTH_FAIL)
         break
-      case WS_EVENTS.FILE_REQUEST:
-        this.emit(APP_EVENTS.FILE_REQUEST, message.params.fileHash)
-        break
       case WS_EVENTS.FILE_STORED:
         this.emit(APP_EVENTS.FILE_STORED, message)
         break
