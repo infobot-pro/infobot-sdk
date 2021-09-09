@@ -73,7 +73,7 @@ class InfobotPlayback extends events_1.default {
             this.call.send(actions.fileResponse(this.id, fileData, fileType));
         };
         this.call.send(actions.playbackFile(this.id, fileHash, fileType));
-        this.call.on(events_2.WS_EVENTS.FILE_REQUEST, processFileRequest);
+        this.call.once(events_2.WS_EVENTS.FILE_REQUEST, processFileRequest);
         setTimeout(() => {
             this.call.off(events_2.WS_EVENTS.FILE_REQUEST, processFileRequest);
         }, 20000);

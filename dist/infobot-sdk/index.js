@@ -37,9 +37,6 @@ class Infobot extends events_1.default {
             case events_2.WS_EVENTS.AUTH_FAIL:
                 this.emit(events_2.APP_EVENTS.AUTH_FAIL);
                 break;
-            case events_2.WS_EVENTS.FILE_REQUEST:
-                this.emit(events_2.APP_EVENTS.FILE_REQUEST, message.params.fileHash);
-                break;
             case events_2.WS_EVENTS.FILE_STORED:
                 this.emit(events_2.APP_EVENTS.FILE_STORED, message);
                 break;
