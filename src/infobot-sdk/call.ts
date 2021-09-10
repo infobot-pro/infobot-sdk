@@ -6,13 +6,16 @@ import InfobotRecording from './recording'
 import InfobotRecognitionSession from './recognition'
 import * as actions from './actions'
 import { WS_EVENTS } from './events'
+import InfobotVariables from './variables'
 
 export default class InfobotCall extends EventEmitter {
   isConnected = false
+  variables: InfobotVariables
 
   constructor(public id: string = uuid(), private ws: WebSocket, public params: any = {}) {
     super()
     this.setMaxListeners(200)
+    this.variables = new InfobotVariables(this)
   }
 
   processEvent(event: string, data: any, receiveData = null) {
@@ -128,5 +131,9 @@ export default class InfobotCall extends EventEmitter {
     const recording = new InfobotRecording(this)
     recording.startRecording(format)
     return recording
+  }
+
+  reachMarker(blockId: number, name: string) {
+    this.send(actions.reachMarker(blockId, name))
   }
 }

@@ -113,6 +113,21 @@ interface InfobotConfig {
 - `.stopSpeechRecognition(): InfobotRecognitionSession`
 - `.startAudioRecord(format): InfobotRecording`
 
+**Свойства**
+
+- `.variables: InfobotVariables` - Управление переменными звонка
+
+### InfobotVariables
+
+**Методы**
+
+- `.on(eventName)` - установка обработчика событий звонка
+- `.off`, `.once`, `.removeAllEventListeners` - и другие методы унаследованы [`EventEmitter`](https://nodejs.org/api/events.html)
+- `.get()` - Получить список переменных 
+- `.set(variables: Array<Variable>)` - Установить переменные
+- `.delete(key)` - Удалить переменную
+
+
 ### InfobotPlayback
 
 **Методы**

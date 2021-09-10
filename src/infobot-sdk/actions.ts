@@ -1,4 +1,5 @@
 import { v1 as uuid } from 'uuid'
+import { Variable } from './types'
 
 export const ACTIONS = {
   PONG: 'PONG',
@@ -28,6 +29,26 @@ export const ACTIONS = {
   FILE_RESPONSE: 'file-response',
   START_SPEECH_RECOGNITION: 'start-speech-recognition',
   STOP_SPEECH_RECOGNITION: 'stop-speech-recognition',
+  REACH_MARKER: 'marker',
+  VARIABLES_SET: 'variables-set',
+  VARIABLES_DELETE: 'variables-delete',
+  VARIABLES_GET: 'variables-get',
+}
+
+export function variablesGet() {
+  return { action: ACTIONS.VARIABLES_GET }
+}
+
+export function variablesSet(variables: Array<Variable>) {
+  return { action: ACTIONS.VARIABLES_SET, params: { variables } }
+}
+
+export function variablesDelete(key: string) {
+  return { action: ACTIONS.VARIABLES_DELETE, params: { key } }
+}
+
+export function reachMarker(blockId: number, name: string) {
+  return { action: ACTIONS.REACH_MARKER, params: { blockId, name } }
 }
 
 export function auth(appID: string, key: string) {
