@@ -1,3 +1,4 @@
+import { Variable } from './types';
 export declare const ACTIONS: {
     PONG: string;
     AUTH: string;
@@ -26,6 +27,32 @@ export declare const ACTIONS: {
     FILE_RESPONSE: string;
     START_SPEECH_RECOGNITION: string;
     STOP_SPEECH_RECOGNITION: string;
+    REACH_MARKER: string;
+    VARIABLES_SET: string;
+    VARIABLES_DELETE: string;
+    VARIABLES_GET: string;
+};
+export declare function variablesGet(): {
+    action: string;
+};
+export declare function variablesSet(variables: Array<Variable>): {
+    action: string;
+    params: {
+        variables: Variable[];
+    };
+};
+export declare function variablesDelete(key: string): {
+    action: string;
+    params: {
+        key: string;
+    };
+};
+export declare function reachMarker(blockId: number, name: string): {
+    action: string;
+    params: {
+        blockId: number;
+        name: string;
+    };
 };
 export declare function auth(appID: string, key: string): {
     action: string;

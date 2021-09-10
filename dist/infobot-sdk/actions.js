@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stopSpeechRecognition = exports.startSpeechRecognition = exports.stopPlayback = exports.fileResponse = exports.playbackFile = exports.playbackAction = exports.ttsAction = exports.stopAudioRecord = exports.startAudioRecord = exports.stopBackgroundSound = exports.cacheTTS = exports.startBackgroundSound = exports.callFoward = exports.sendSms = exports.forwardAudioStream = exports.stopAudioStream = exports.startAudioStream = exports.pong = exports.finishCall = exports.startCall = exports.stopTry = exports.stopDelivery = exports.ring = exports.answer = exports.hangup = exports.makeCall = exports.auth = exports.ACTIONS = void 0;
+exports.stopSpeechRecognition = exports.startSpeechRecognition = exports.stopPlayback = exports.fileResponse = exports.playbackFile = exports.playbackAction = exports.ttsAction = exports.stopAudioRecord = exports.startAudioRecord = exports.stopBackgroundSound = exports.cacheTTS = exports.startBackgroundSound = exports.callFoward = exports.sendSms = exports.forwardAudioStream = exports.stopAudioStream = exports.startAudioStream = exports.pong = exports.finishCall = exports.startCall = exports.stopTry = exports.stopDelivery = exports.ring = exports.answer = exports.hangup = exports.makeCall = exports.auth = exports.reachMarker = exports.variablesDelete = exports.variablesSet = exports.variablesGet = exports.ACTIONS = void 0;
 const uuid_1 = require("uuid");
 exports.ACTIONS = {
     PONG: 'PONG',
@@ -30,7 +30,27 @@ exports.ACTIONS = {
     FILE_RESPONSE: 'file-response',
     START_SPEECH_RECOGNITION: 'start-speech-recognition',
     STOP_SPEECH_RECOGNITION: 'stop-speech-recognition',
+    REACH_MARKER: 'marker',
+    VARIABLES_SET: 'vars-set',
+    VARIABLES_DELETE: 'vars-delete',
+    VARIABLES_GET: 'vars-get',
 };
+function variablesGet() {
+    return { action: exports.ACTIONS.VARIABLES_GET };
+}
+exports.variablesGet = variablesGet;
+function variablesSet(variables) {
+    return { action: exports.ACTIONS.VARIABLES_SET, params: { variables } };
+}
+exports.variablesSet = variablesSet;
+function variablesDelete(key) {
+    return { action: exports.ACTIONS.VARIABLES_DELETE, params: { key } };
+}
+exports.variablesDelete = variablesDelete;
+function reachMarker(blockId, name) {
+    return { action: exports.ACTIONS.REACH_MARKER, params: { blockId, name } };
+}
+exports.reachMarker = reachMarker;
 function auth(appID, key) {
     return { action: exports.ACTIONS.AUTH, appID, key };
 }
