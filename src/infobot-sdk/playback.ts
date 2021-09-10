@@ -50,7 +50,7 @@ export default class InfobotPlayback extends EventEmitter {
     const fileType = mime.getType(path)
 
     const processFileRequest = (requestFileHash: any) => {
-      if (fileHash !== requestFileHash) return false
+      if (fileHash !== requestFileHash.fileHash) return false
       const fileData = file.toString('base64')
       this.call.send(actions.fileResponse(this.id, fileData, fileType))
     }
