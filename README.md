@@ -71,7 +71,7 @@ interface InfobotConfig {
 
 - `.start` - подключение к серверу инфобот
 - `.on(eventName)` - установка обработчика событий инфобота
-- `.off`, `.once`, `.removeAllEventListeners` - и другие методы унаследованы [`EventEmitter`](https://nodejs.org/api/events.html)
+- `.off`, `.once`, `.removeAllListeners` - и другие методы унаследованы [`EventEmitter`](https://nodejs.org/api/events.html)
 
 **События**
 

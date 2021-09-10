@@ -67,7 +67,7 @@ class InfobotPlayback extends events_1.default {
         const fileHash = md5_1.default(file);
         const fileType = mime_1.default.getType(path);
         const processFileRequest = (requestFileHash) => {
-            if (fileHash !== requestFileHash)
+            if (fileHash !== requestFileHash.fileHash)
                 return false;
             const fileData = file.toString('base64');
             this.call.send(actions.fileResponse(this.id, fileData, fileType));

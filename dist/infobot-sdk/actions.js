@@ -31,9 +31,9 @@ exports.ACTIONS = {
     START_SPEECH_RECOGNITION: 'start-speech-recognition',
     STOP_SPEECH_RECOGNITION: 'stop-speech-recognition',
     REACH_MARKER: 'marker',
-    VARIABLES_SET: 'vars-set',
-    VARIABLES_DELETE: 'vars-delete',
-    VARIABLES_GET: 'vars-get',
+    VARIABLES_SET: 'variables-set',
+    VARIABLES_DELETE: 'variables-delete',
+    VARIABLES_GET: 'variables-get',
 };
 function variablesGet() {
     return { action: exports.ACTIONS.VARIABLES_GET };
