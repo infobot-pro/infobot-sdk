@@ -81,8 +81,8 @@ export default class InfobotCall extends EventEmitter {
     this.send(actions.sendSms(to, text, digital ? 1 : 0, short ? 1 : 0, from))
   }
 
-  forward(to: string, message: string, headers = null) {
-    this.send(actions.callFoward(to, message, headers))
+  forward(to: string, message: string, tts: any, headers = null) {
+    this.send(actions.callForward(to, message, tts, headers))
   }
 
   startBackgroundSound(url: string, volume: any, repeat: any) {

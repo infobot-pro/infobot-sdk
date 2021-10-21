@@ -115,10 +115,10 @@ export function sendSms(to: string, text: string, digital: any, short: any, from
   return { action: ACTIONS.SEND_SMS, to, text, from, digital, short, id: id || uuid() }
 }
 
-export function callFoward(to: string, message: string, headers = null) {
+export function callForward(to: string, message: string, tts: any, headers = null) {
   return {
     action: ACTIONS.CALL_FORWARD,
-    params: { to, message, headers },
+    params: { to, message, tts, headers },
   }
 }
 
