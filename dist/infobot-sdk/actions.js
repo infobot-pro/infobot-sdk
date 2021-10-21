@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stopSpeechRecognition = exports.startSpeechRecognition = exports.stopPlayback = exports.fileResponse = exports.playbackFile = exports.playbackAction = exports.ttsAction = exports.stopAudioRecord = exports.startAudioRecord = exports.stopBackgroundSound = exports.cacheTTS = exports.startBackgroundSound = exports.callFoward = exports.sendSms = exports.forwardAudioStream = exports.stopAudioStream = exports.startAudioStream = exports.pong = exports.finishCall = exports.startCall = exports.stopTry = exports.stopDelivery = exports.ring = exports.answer = exports.hangup = exports.makeCall = exports.auth = exports.reachMarker = exports.variablesDelete = exports.variablesSet = exports.variablesGet = exports.ACTIONS = void 0;
+exports.stopSpeechRecognition = exports.startSpeechRecognition = exports.stopPlayback = exports.fileResponse = exports.playbackFile = exports.playbackAction = exports.ttsAction = exports.stopAudioRecord = exports.startAudioRecord = exports.stopBackgroundSound = exports.cacheTTS = exports.startBackgroundSound = exports.callForward = exports.sendSms = exports.forwardAudioStream = exports.stopAudioStream = exports.startAudioStream = exports.pong = exports.finishCall = exports.startCall = exports.stopTry = exports.stopDelivery = exports.ring = exports.answer = exports.hangup = exports.makeCall = exports.auth = exports.reachMarker = exports.variablesDelete = exports.variablesSet = exports.variablesGet = exports.ACTIONS = void 0;
 const uuid_1 = require("uuid");
 exports.ACTIONS = {
     PONG: 'PONG',
@@ -115,13 +115,13 @@ function sendSms(to, text, digital, short, from, id) {
     return { action: exports.ACTIONS.SEND_SMS, to, text, from, digital, short, id: id || uuid_1.v1() };
 }
 exports.sendSms = sendSms;
-function callFoward(to, message, headers = null) {
+function callForward(to, message, tts, headers = null) {
     return {
         action: exports.ACTIONS.CALL_FORWARD,
-        params: { to, message, headers },
+        params: { to, message, tts, headers },
     };
 }
-exports.callFoward = callFoward;
+exports.callForward = callForward;
 function startBackgroundSound(url, volume, repeat) {
     return {
         action: exports.ACTIONS.START_BACKGROUND_SOUND,

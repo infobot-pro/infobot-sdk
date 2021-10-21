@@ -88,8 +88,8 @@ class InfobotCall extends events_1.default {
     sendSMS(to, text, digital, short, from) {
         this.send(actions.sendSms(to, text, digital ? 1 : 0, short ? 1 : 0, from));
     }
-    forward(to, message, headers = null) {
-        this.send(actions.callFoward(to, message, headers));
+    forward(to, message, tts, headers = null) {
+        this.send(actions.callForward(to, message, tts, headers));
     }
     startBackgroundSound(url, volume, repeat) {
         this.send(actions.startBackgroundSound(url, volume, repeat));

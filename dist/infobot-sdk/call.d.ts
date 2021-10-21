@@ -26,7 +26,7 @@ export default class InfobotCall extends EventEmitter {
     stopAudioStream(): void;
     forwardAudioStream(host: string, port: number | string): void;
     sendSMS(to: string, text: string, digital: any, short: any, from: string): void;
-    forward(to: string, message: string, headers?: any): void;
+    forward(to: string, message: string, tts: any, headers?: any): void;
     startBackgroundSound(url: string, volume: any, repeat: any): void;
     cacheTTS(phrases: any): void;
     stopBackgroundSound(): void;

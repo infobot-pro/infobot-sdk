@@ -112,11 +112,12 @@ export declare function sendSms(to: string, text: string, digital: any, short: a
     short: any;
     id: string | number;
 };
-export declare function callFoward(to: string, message: string, headers?: any): {
+export declare function callForward(to: string, message: string, tts: any, headers?: any): {
     action: string;
     params: {
         to: string;
         message: string;
+        tts: any;
         headers: any;
     };
 };
