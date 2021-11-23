@@ -38,8 +38,8 @@ export default class InfobotVariables extends EventEmitter {
     this.call.send(variablesSet(variables))
   }
 
-  delete(key: string) {
-    this.call.send(variablesDelete(key))
+  delete(name: string) {
+    this.call.send(variablesDelete(name))
   }
 
   get() {
