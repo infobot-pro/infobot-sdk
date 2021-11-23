@@ -43,8 +43,8 @@ export function variablesSet(variables: Array<Variable>) {
   return { action: ACTIONS.VARIABLES_SET, params: { variables } }
 }
 
-export function variablesDelete(key: string) {
-  return { action: ACTIONS.VARIABLES_DELETE, params: { key } }
+export function variablesDelete(name: string) {
+  return { action: ACTIONS.VARIABLES_DELETE, params: { name } }
 }
 
 export function reachMarker(blockId: number, name: string) {
