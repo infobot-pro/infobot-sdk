@@ -33,6 +33,7 @@ export const ACTIONS = {
   VARIABLES_SET: 'variables-set',
   VARIABLES_DELETE: 'variables-delete',
   VARIABLES_GET: 'variables-get',
+  STOP_APP: 'stop-app',
 }
 
 export function variablesGet() {

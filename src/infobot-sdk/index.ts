@@ -3,7 +3,7 @@ import EventEmitter from 'events'
 import WebSocket from 'ws'
 import InfobotCall from './call'
 import { WS_EVENTS, APP_EVENTS } from './events'
-import { auth, makeCall } from './actions'
+import { ACTIONS, auth, makeCall } from './actions'
 import { InfobotConfig, WsMessage } from './types'
 
 export default class Infobot extends EventEmitter {
@@ -107,6 +107,14 @@ export default class Infobot extends EventEmitter {
     if (this.config.disableReconnect !== true) {
       setTimeout(() => this.connect(), this.reconnectTimeout)
     }
+  }
+
+  stopApp() {
+    this.ws.send(
+      JSON.stringify({
+        action: ACTIONS.STOP_APP,
+      })
+    )
   }
 
   getCall(callId: string) {
