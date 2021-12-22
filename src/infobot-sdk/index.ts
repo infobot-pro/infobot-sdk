@@ -119,7 +119,7 @@ export default class Infobot extends EventEmitter {
 
 
     getCallsCount() {
-        return this.calls.length;
+        return Object.keys(this.calls).length;
     }
 
     getCall(callId: string) {
