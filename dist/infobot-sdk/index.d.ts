@@ -18,6 +18,8 @@ export default class Infobot extends EventEmitter {
     private handleCallWsMessage;
     private connect;
     private reconnect;
+    stopApp(): void;
+    getCallsCount(): number;
     getCall(callId: string): InfobotCall;
     removeCall(callId: string): boolean;
     makeCall(to: any, opts: any): InfobotCall;

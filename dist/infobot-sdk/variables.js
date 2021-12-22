@@ -38,8 +38,8 @@ class InfobotVariables extends events_1.default {
     set(variables) {
         this.call.send(actions_1.variablesSet(variables));
     }
-    delete(key) {
-        this.call.send(actions_1.variablesDelete(key));
+    delete(name) {
+        this.call.send(actions_1.variablesDelete(name));
     }
     get() {
         this.call.send(actions_1.variablesGet());

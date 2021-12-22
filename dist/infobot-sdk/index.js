@@ -92,6 +92,14 @@ class Infobot extends events_1.default {
             setTimeout(() => this.connect(), this.reconnectTimeout);
         }
     }
+    stopApp() {
+        this.ws.send(JSON.stringify({
+            action: actions_1.ACTIONS.STOP_APP,
+        }));
+    }
+    getCallsCount() {
+        return Object.keys(this.calls).length;
+    }
     getCall(callId) {
         const call = this.calls[callId];
         if (!call)

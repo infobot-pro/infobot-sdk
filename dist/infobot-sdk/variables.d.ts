@@ -8,6 +8,6 @@ export default class InfobotVariables extends EventEmitter {
     constructor(call: InfobotCall);
     private initEventHandlers;
     set(variables: Array<Variable>): void;
-    delete(key: string): void;
+    delete(name: string): void;
     get(): void;
 }

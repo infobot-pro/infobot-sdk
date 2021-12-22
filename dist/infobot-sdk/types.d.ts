@@ -14,5 +14,5 @@ export interface WsMessage {
 }
 export interface Variable {
     value: string;
-    key: string;
+    name: string;
 }
