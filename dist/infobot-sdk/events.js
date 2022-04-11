@@ -12,6 +12,7 @@ exports.WS_EVENTS = {
     FILE_STORE_ERROR: 'file-store-error',
     CALL_DISCONNECTED: 'call-disconnected',
     PING: 'ping',
+    RECONNECT: 'reconnect',
 };
 exports.APP_EVENTS = {
     AUTH_FAIL: 'AUTH_FAIL',
