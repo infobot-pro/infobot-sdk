@@ -92,6 +92,7 @@ export default class Infobot extends EventEmitter {
   }
 
   private reconnect() {
+    this.emit(WS_EVENTS.RECONNECT)
     this.ws.removeAllListeners()
     this.removeAllListeners('callAnswered')
     this.removeAllListeners('incomingCall')

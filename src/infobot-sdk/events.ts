@@ -9,6 +9,7 @@ export const WS_EVENTS = {
   FILE_STORE_ERROR: 'file-store-error',
   CALL_DISCONNECTED: 'call-disconnected',
   PING: 'ping',
+  RECONNECT: 'reconnect',
 }
 
 export const APP_EVENTS = {
