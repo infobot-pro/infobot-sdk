@@ -9,6 +9,7 @@ export declare const WS_EVENTS: {
     FILE_STORE_ERROR: string;
     CALL_DISCONNECTED: string;
     PING: string;
+    RECONNECT: string;
 };
 export declare const APP_EVENTS: {
     AUTH_FAIL: string;

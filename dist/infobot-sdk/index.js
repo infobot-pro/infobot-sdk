@@ -77,6 +77,7 @@ class Infobot extends events_1.default {
         this.ws.on('error', this.reconnect.bind(this));
     }
     reconnect() {
+        this.emit(events_2.WS_EVENTS.RECONNECT);
         this.ws.removeAllListeners();
         this.removeAllListeners('callAnswered');
         this.removeAllListeners('incomingCall');
