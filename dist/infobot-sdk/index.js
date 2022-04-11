@@ -10,12 +10,15 @@ const call_1 = __importDefault(require("./call"));
 const events_2 = require("./events");
 const actions_1 = require("./actions");
 class Infobot extends events_1.default {
-    constructor(config, maxCallTimeout = 5 * 60 * 1000, maxListeners = 200, reconnectTimeout = 500) {
+    constructor(config, maxCallTimeout = 5 * 60 * 1000, maxListeners = 200, reconnectTimeout = 500, pingTimeout = 60000, pingInterval = 5000, pingEnable = true) {
         super();
         this.config = config;
         this.maxCallTimeout = maxCallTimeout;
         this.maxListeners = maxListeners;
         this.reconnectTimeout = reconnectTimeout;
+        this.pingTimeout = pingTimeout;
+        this.pingInterval = pingInterval;
+        this.pingEnable = pingEnable;
         this.calls = {};
         this.callTimers = {};
         this.setMaxListeners(maxListeners);
@@ -71,12 +74,40 @@ class Infobot extends events_1.default {
     }
     connect() {
         this.ws = new ws_1.default(this.config.url);
-        this.ws.on('open', () => this.send(actions_1.auth(this.config.appId, this.config.key)));
+        this.ws.on('open', () => {
+            this.send(actions_1.auth(this.config.appId, this.config.key));
+            if (this.pingEnable) {
+                this._pingInterval = setInterval(() => {
+                    this.ws.ping();
+                }, this.pingInterval);
+                this.timeout();
+            }
+        });
         this.ws.on('message', this.handleWsMessage.bind(this));
         this.ws.on('close', this.reconnect.bind(this));
         this.ws.on('error', this.reconnect.bind(this));
+        this.ws.on('ping', this.ping.bind(this));
+        this.ws.on('pong', this.pong.bind(this));
+    }
+    timeout() {
+        if (this._pingTimeout) {
+            clearTimeout(this._pingTimeout);
+        }
+        this._pingTimeout = setTimeout(() => {
+            this.reconnect();
+        }, this.pingTimeout);
+    }
+    ping() {
+        this.emit(events_2.WS_EVENTS.WS_PING);
+    }
+    pong() {
+        this.timeout();
+        this.emit(events_2.WS_EVENTS.WS_PONG);
     }
     reconnect() {
+        if (this.pingEnable) {
+            clearInterval(this._pingInterval);
+        }
         this.emit(events_2.WS_EVENTS.RECONNECT);
         this.ws.removeAllListeners();
         this.removeAllListeners('callAnswered');

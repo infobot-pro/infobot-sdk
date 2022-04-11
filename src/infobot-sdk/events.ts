@@ -10,6 +10,8 @@ export const WS_EVENTS = {
   CALL_DISCONNECTED: 'call-disconnected',
   PING: 'ping',
   RECONNECT: 'reconnect',
+  WS_PING: 'wsPing',
+  WS_PONG: 'wsPong',
 }
 
 export const APP_EVENTS = {

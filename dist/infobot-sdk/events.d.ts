@@ -10,6 +10,8 @@ export declare const WS_EVENTS: {
     CALL_DISCONNECTED: string;
     PING: string;
     RECONNECT: string;
+    WS_PING: string;
+    WS_PONG: string;
 };
 export declare const APP_EVENTS: {
     AUTH_FAIL: string;
