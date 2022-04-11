@@ -91,18 +91,19 @@ export default class Infobot extends EventEmitter {
         this.ws.on('error', this.reconnect.bind(this))
     }
 
-    private reconnect() {
-        this.ws.removeAllListeners()
-        this.removeAllListeners('callAnswered')
-        this.removeAllListeners('incomingCall')
-        this.removeAllListeners('voicemail')
-        this.removeAllListeners('callFinished')
-        this.removeAllListeners('beforeCall')
-        this.removeAllListeners('callNoAnswer')
-        this.removeAllListeners('callFailed')
-        this.removeAllListeners('callBusy')
-        this.removeAllListeners('callIncorrectNumber')
-        this.calls = {}
+  private reconnect() {
+    this.emit(WS_EVENTS.RECONNECT)
+    this.ws.removeAllListeners()
+    this.removeAllListeners('callAnswered')
+    this.removeAllListeners('incomingCall')
+    this.removeAllListeners('voicemail')
+    this.removeAllListeners('callFinished')
+    this.removeAllListeners('beforeCall')
+    this.removeAllListeners('callNoAnswer')
+    this.removeAllListeners('callFailed')
+    this.removeAllListeners('callBusy')
+    this.removeAllListeners('callIncorrectNumber')
+    this.calls = {}
 
         if (this.config.disableReconnect !== true) {
             setTimeout(() => this.connect(), this.reconnectTimeout)
