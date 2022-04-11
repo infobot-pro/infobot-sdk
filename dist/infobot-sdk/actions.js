@@ -34,6 +34,7 @@ exports.ACTIONS = {
     VARIABLES_SET: 'variables-set',
     VARIABLES_DELETE: 'variables-delete',
     VARIABLES_GET: 'variables-get',
+    STOP_APP: 'stop-app',
 };
 function variablesGet() {
     return { action: exports.ACTIONS.VARIABLES_GET };
@@ -43,8 +44,8 @@ function variablesSet(variables) {
     return { action: exports.ACTIONS.VARIABLES_SET, params: { variables } };
 }
 exports.variablesSet = variablesSet;
-function variablesDelete(key) {
-    return { action: exports.ACTIONS.VARIABLES_DELETE, params: { key } };
+function variablesDelete(name) {
+    return { action: exports.ACTIONS.VARIABLES_DELETE, params: { name } };
 }
 exports.variablesDelete = variablesDelete;
 function reachMarker(blockId, name) {

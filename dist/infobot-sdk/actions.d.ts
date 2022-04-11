@@ -31,6 +31,7 @@ export declare const ACTIONS: {
     VARIABLES_SET: string;
     VARIABLES_DELETE: string;
     VARIABLES_GET: string;
+    STOP_APP: string;
 };
 export declare function variablesGet(): {
     action: string;
@@ -41,10 +42,10 @@ export declare function variablesSet(variables: Array<Variable>): {
         variables: Variable[];
     };
 };
-export declare function variablesDelete(key: string): {
+export declare function variablesDelete(name: string): {
     action: string;
     params: {
-        key: string;
+        name: string;
     };
 };
 export declare function reachMarker(blockId: number, name: string): {
