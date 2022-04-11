@@ -13,6 +13,8 @@ exports.WS_EVENTS = {
     CALL_DISCONNECTED: 'call-disconnected',
     PING: 'ping',
     RECONNECT: 'reconnect',
+    WS_PING: 'wsPing',
+    WS_PONG: 'wsPong',
 };
 exports.APP_EVENTS = {
     AUTH_FAIL: 'AUTH_FAIL',

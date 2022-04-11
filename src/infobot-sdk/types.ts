@@ -2,7 +2,8 @@ export interface InfobotConfig {
   appId: string
   url: string
   key: string
-  disableReconnect?: boolean
+  disableReconnect?: boolean,
+  pingEnable?: boolean
 }
 
 export interface WsMessage {
