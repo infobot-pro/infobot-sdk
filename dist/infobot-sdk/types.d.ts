@@ -3,6 +3,7 @@ export interface InfobotConfig {
     url: string;
     key: string;
     disableReconnect?: boolean;
+    pingEnable?: boolean;
 }
 export interface WsMessage {
     event?: string;

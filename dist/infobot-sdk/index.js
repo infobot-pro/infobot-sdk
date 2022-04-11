@@ -10,7 +10,7 @@ const call_1 = __importDefault(require("./call"));
 const events_2 = require("./events");
 const actions_1 = require("./actions");
 class Infobot extends events_1.default {
-    constructor(config, maxCallTimeout = 5 * 60 * 1000, maxListeners = 200, reconnectTimeout = 500, pingTimeout = 60000, pingInterval = 5000, pingEnable = true) {
+    constructor(config, maxCallTimeout = 5 * 60 * 1000, maxListeners = 200, reconnectTimeout = 500, pingTimeout = 60000, pingInterval = 5000, pingEnable = false) {
         super();
         this.config = config;
         this.maxCallTimeout = maxCallTimeout;
@@ -22,6 +22,7 @@ class Infobot extends events_1.default {
         this.calls = {};
         this.callTimers = {};
         this.setMaxListeners(maxListeners);
+        this.pingEnable = this.config.pingEnable;
     }
     start() {
         this.connect();
@@ -107,6 +108,7 @@ class Infobot extends events_1.default {
     reconnect() {
         if (this.pingEnable) {
             clearInterval(this._pingInterval);
+            clearInterval(this._pingTimeout);
         }
         this.emit(events_2.WS_EVENTS.RECONNECT);
         this.ws.removeAllListeners();
