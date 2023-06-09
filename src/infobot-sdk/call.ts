@@ -121,6 +121,12 @@ export default class InfobotCall extends EventEmitter {
     return recognitionSession
   }
 
+  startSpeechRecognitionWithCustomConfig({ provider, config }): InfobotRecognitionSession {
+    const recognitionSession = new InfobotRecognitionSession(this)
+    recognitionSession.startSpeechRecognitionWithCustomConfig(provider, config)
+    return recognitionSession
+  }
+
   stopSpeechRecognition(): InfobotRecognitionSession {
     const recognitionSession = new InfobotRecognitionSession(this)
     recognitionSession.stopSpeechRecognition()
