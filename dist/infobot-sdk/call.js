@@ -120,6 +120,11 @@ class InfobotCall extends events_1.default {
         recognitionSession.startSpeechRecognition(provider, language, grammar, timeout);
         return recognitionSession;
     }
+    startSpeechRecognitionWithCustomConfig({ provider, config }) {
+        const recognitionSession = new recognition_1.default(this);
+        recognitionSession.startSpeechRecognitionWithCustomConfig(provider, config);
+        return recognitionSession;
+    }
     stopSpeechRecognition() {
         const recognitionSession = new recognition_1.default(this);
         recognitionSession.stopSpeechRecognition();

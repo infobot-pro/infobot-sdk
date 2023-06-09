@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stopSpeechRecognition = exports.startSpeechRecognition = exports.stopPlayback = exports.fileResponse = exports.playbackFile = exports.playbackAction = exports.ttsAction = exports.stopAudioRecord = exports.startAudioRecord = exports.stopBackgroundSound = exports.cacheTTS = exports.startBackgroundSound = exports.callForward = exports.sendSms = exports.forwardAudioStream = exports.stopAudioStream = exports.startAudioStream = exports.pong = exports.finishCall = exports.startCall = exports.stopTry = exports.stopDelivery = exports.ring = exports.answer = exports.hangup = exports.makeCall = exports.auth = exports.reachMarker = exports.variablesDelete = exports.variablesSet = exports.variablesGet = exports.ACTIONS = void 0;
+exports.stopSpeechRecognition = exports.startSpeechRecognitionWithCustomConfig = exports.startSpeechRecognition = exports.stopPlayback = exports.fileResponse = exports.playbackFile = exports.playbackAction = exports.ttsAction = exports.stopAudioRecord = exports.startAudioRecord = exports.stopBackgroundSound = exports.cacheTTS = exports.startBackgroundSound = exports.callForward = exports.sendSms = exports.forwardAudioStream = exports.stopAudioStream = exports.startAudioStream = exports.pong = exports.finishCall = exports.startCall = exports.stopTry = exports.stopDelivery = exports.ring = exports.answer = exports.hangup = exports.makeCall = exports.auth = exports.reachMarker = exports.variablesDelete = exports.variablesSet = exports.variablesGet = exports.ACTIONS = void 0;
 const uuid_1 = require("uuid");
 exports.ACTIONS = {
     PONG: 'PONG',
@@ -29,6 +29,7 @@ exports.ACTIONS = {
     STOP_PLAYBACK: 'stop-playback',
     FILE_RESPONSE: 'file-response',
     START_SPEECH_RECOGNITION: 'start-speech-recognition',
+    START_SPEECH_RECOGNITION_CUSTOM: 'start-speech-recognition-custom',
     STOP_SPEECH_RECOGNITION: 'stop-speech-recognition',
     REACH_MARKER: 'marker',
     VARIABLES_SET: 'variables-set',
@@ -218,6 +219,17 @@ function startSpeechRecognition(sessionID, provider, language, grammar, timeout)
     };
 }
 exports.startSpeechRecognition = startSpeechRecognition;
+function startSpeechRecognitionWithCustomConfig(sessionID, provider, config) {
+    return {
+        action: exports.ACTIONS.START_SPEECH_RECOGNITION_CUSTOM,
+        params: {
+            provider,
+            customConfig: config,
+            sessionID,
+        },
+    };
+}
+exports.startSpeechRecognitionWithCustomConfig = startSpeechRecognitionWithCustomConfig;
 function stopSpeechRecognition(sessionID) {
     return {
         action: exports.ACTIONS.STOP_SPEECH_RECOGNITION,

@@ -39,6 +39,10 @@ export default class InfobotCall extends EventEmitter {
         grammar: any;
         timeout: any;
     }): InfobotRecognitionSession;
+    startSpeechRecognitionWithCustomConfig({ provider, config }: {
+        provider: any;
+        config: any;
+    }): InfobotRecognitionSession;
     stopSpeechRecognition(): InfobotRecognitionSession;
     startAudioRecord(format: any): InfobotRecording;
     reachMarker(blockId: number, name: string): void;

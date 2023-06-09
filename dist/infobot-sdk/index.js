@@ -127,9 +127,11 @@ class Infobot extends events_1.default {
         }
     }
     stopApp() {
-        this.ws.send(JSON.stringify({
-            action: actions_1.ACTIONS.STOP_APP,
-        }));
+        if (this.ws) {
+            this.ws.send(JSON.stringify({
+                action: actions_1.ACTIONS.STOP_APP,
+            }));
+        }
     }
     getCallsCount() {
         return Object.keys(this.calls).length;

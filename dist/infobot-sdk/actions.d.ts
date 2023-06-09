@@ -26,6 +26,7 @@ export declare const ACTIONS: {
     STOP_PLAYBACK: string;
     FILE_RESPONSE: string;
     START_SPEECH_RECOGNITION: string;
+    START_SPEECH_RECOGNITION_CUSTOM: string;
     STOP_SPEECH_RECOGNITION: string;
     REACH_MARKER: string;
     VARIABLES_SET: string;
@@ -192,6 +193,14 @@ export declare function startSpeechRecognition(sessionID: string | number, provi
         language: any;
         grammar: any;
         timeout: any;
+        sessionID: string | number;
+    };
+};
+export declare function startSpeechRecognitionWithCustomConfig(sessionID: string | number, provider: string, config: any): {
+    action: string;
+    params: {
+        provider: string;
+        customConfig: any;
         sessionID: string | number;
     };
 };

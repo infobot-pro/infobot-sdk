@@ -31,6 +31,10 @@ class InfobotSpeechRecognition extends events_1.default {
         this.call.send(actions_1.startSpeechRecognition(this.id, provider, language, grammar, timeout));
         return this;
     }
+    startSpeechRecognitionWithCustomConfig(provider, config) {
+        this.call.send(actions_1.startSpeechRecognitionWithCustomConfig(this.id, provider, config));
+        return this;
+    }
     stopSpeechRecognition() {
         this.call.send(actions_1.stopSpeechRecognition(this.id));
         return this;
