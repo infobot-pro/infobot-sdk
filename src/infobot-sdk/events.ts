@@ -17,6 +17,7 @@ export const WS_EVENTS = {
 export const APP_EVENTS = {
   AUTH_FAIL: 'AUTH_FAIL',
   BOT_ERROR: 'botError',
+  DISCONNECTED: 'disconnected',
   FILE_REQUEST: 'FILE_REQUEST',
   FILE_STORED: 'FILE_STORED',
   FILE_STORE_ERROR: 'FILE_STORE_ERROR',

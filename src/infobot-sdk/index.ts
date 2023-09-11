@@ -77,6 +77,7 @@ export default class Infobot extends EventEmitter {
 
         if (event === WS_EVENTS.CALL_DISCONNECTED) {
             call.isConnected = false
+            call.processEvent(APP_EVENTS.CALL_DISCONNECTED, message.params, message)
             this.removeCall(message.callID)
         }
 
